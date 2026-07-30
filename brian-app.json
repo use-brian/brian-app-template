@@ -1,0 +1,10 @@
+{
+  "manifestVersion": 1,
+  "name": "My Brian app",
+  "description": "What this app shows, in one line. The consent screen uses it.",
+  "icon": "LayoutDashboard",
+  "entry": "index.html",
+  "scopes": {
+    "data": "read"
+  }
+}

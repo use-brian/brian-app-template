@@ -1,0 +1,13 @@
+name: lint
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      # The same validator the importer runs, so green here means the import
+      # will not surprise you.
+      - run: npx --yes @use-brian/brian-app lint

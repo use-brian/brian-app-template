@@ -1,0 +1,16 @@
+/* The host renders this app in light or dark; follow the viewer rather than
+   picking one, or your app is the one thing on the page that ignores it. */
+:root { color-scheme: light dark; }
+
+body {
+  margin: 0;
+  font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: Canvas;
+  color: CanvasText;
+}
+
+main { max-width: 48rem; margin: 0 auto; padding: 2rem 1.5rem; }
+h1 { font-size: 1.125rem; margin: 0 0 0.5rem; }
+p { color: color-mix(in srgb, CanvasText 60%, Canvas); margin: 0 0 1rem; }
+ul { margin: 0; padding: 0; list-style: none; }
+li { padding: 0.5rem 0; border-top: 1px solid color-mix(in srgb, CanvasText 12%, Canvas); }
