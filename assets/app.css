@@ -14,3 +14,11 @@ h1 { font-size: 1.125rem; margin: 0 0 0.5rem; }
 p { color: color-mix(in srgb, CanvasText 60%, Canvas); margin: 0 0 1rem; }
 ul { margin: 0; padding: 0; list-style: none; }
 li { padding: 0.5rem 0; border-top: 1px solid color-mix(in srgb, CanvasText 12%, Canvas); }
+form { margin: 1.5rem 0 1rem; }
+label { display: block; margin-bottom: 0.5rem; }
+.search-controls { display: flex; gap: 0.5rem; }
+input, button { font: inherit; color: inherit; background: Canvas; border: 1px solid color-mix(in srgb, CanvasText 30%, Canvas); border-radius: 0.4rem; padding: 0.6rem 0.8rem; }
+input { flex: 1; min-width: 0; }
+button { cursor: pointer; }
+button:disabled { opacity: 0.55; cursor: default; }
+li { overflow-wrap: anywhere; white-space: pre-wrap; }

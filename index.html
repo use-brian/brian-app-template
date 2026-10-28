@@ -4,14 +4,36 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>My Brian app</title>
-    <link rel="stylesheet" href="assets/app.css" />
   </head>
   <body>
     <main>
       <h1>My Brian app</h1>
-      <p id="status">Connecting…</p>
-      <ul id="results"></ul>
+      <form id="search">
+        <label for="query">Search your workspace</label>
+        <div class="search-controls">
+          <input id="query" name="query" type="search" value="recent" maxlength="1000" />
+          <button id="submit" type="submit">Search</button>
+        </div>
+      </form>
+      <p id="status" role="status" aria-live="polite">Loading...</p>
+      <ul id="results" aria-label="Search results"></ul>
     </main>
-    <script type="module" src="assets/app.js"></script>
+    <script type="module">
+      // The capability serves this app's bytes only; it is never an API bearer.
+      const token = new URL(location.href).searchParams.get('t');
+      const asset = path => {
+        const url = new URL(path, location.href);
+        if (token) url.searchParams.set('t', token);
+        return url.href;
+      };
+      const style = document.createElement('link');
+      style.rel = 'stylesheet';
+      style.href = asset('assets/app.css');
+      document.head.append(style);
+      import(asset('assets/app.js')).catch(() => {
+        document.getElementById('status').textContent = 'The app could not load. Reopen it inside Brian.';
+        document.getElementById('submit').disabled = true;
+      });
+    </script>
   </body>
 </html>

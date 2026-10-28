@@ -1,10 +1,12 @@
 {
   "manifestVersion": 1,
   "name": "My Brian app",
-  "description": "What this app shows, in one line. The consent screen uses it.",
+  "description": "A read-only search of the workspace information available to the current viewer.",
   "icon": "LayoutDashboard",
   "entry": "index.html",
   "scopes": {
-    "data": "read"
+    "data": "read",
+    "identity": false,
+    "net": []
   }
 }

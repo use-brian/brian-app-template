@@ -7,7 +7,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: "20" }
-      # The same validator the importer runs, so green here means the import
-      # will not surprise you.
+        with: { node-version: "22" }
+      - run: node --test .github/tests/*.test.mjs
+      # Checks this default legacy Brain bundle. Application scopes need the
+      # matching deployment validator; lint never proves grants or runtime readiness.
       - run: npx --yes @use-brian/brian-app lint
